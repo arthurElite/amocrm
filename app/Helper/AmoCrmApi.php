@@ -8,7 +8,7 @@ class AmoCrmApi
     public function __construct()
     {
          try {
-             $this->amoClient = new AmoCRM\Client\AmoCRMApiClient('31552427', 'dZD5Wd0cdS2UJlDKRfmafjZGscOBwd0DRj78hZJBYKxJL8WhFUduYznmuyed0hBQ', 'https://arthurmelikyan.github.io/');
+             $this->amoClient = new AmoCRM\Client\AmoCRMApiClient('31552427', 'Tj92U2PKVhnOIcFwbsNPWPofDRDqnD7e467aMo5cAoLeCV7QYk2o8jXyKSMDKJ72', 'https://arthurmelikyan.github.io/');
          } catch (Exception $e) {
              dd($e->getMessage());
          }
@@ -24,6 +24,7 @@ class AmoCrmApi
         return $this->amoClient->getOAuthClient();
     }
 }
+
 
 // secret
 //W8HxHlQ6u4cBszJDjG3OuIWOOAfKIa7dudzoVoYINWN6xJsGyowI2gdtzUg06yBv

@@ -13,18 +13,17 @@ class App
 
     public function __construct()
     {
-        $isInHomePage = $this->isInHomePage();
         $req = $this->parseUrl();
         $this->uri = $this->getUriSegments();
         $this->reqParams = $this->getRequestParameters();
+        $isInHomePage = $this->isInHomePage();
 
         if ($isInHomePage) {
             $this->controller = 'home';
-            $isInHomePage = true;
         }
 
-        if (!$isInHomePage && file_exists('../app/controllers/' . $this->uri[0] . '.php')) {
-            $this->controller = $this->uri[0];
+        if (!$isInHomePage && $this->getFirstInSegment() && file_exists('../app/controllers/' . $this->getFirstInSegment() . '.php')) {
+            $this->controller = $this->getFirstInSegment();
         }
 
         if (!$isInHomePage && (!$this->controller || !file_exists('../app/controllers/' . $this->controller . '.php'))) {
@@ -80,5 +79,18 @@ class App
     public function getUriSegments()
     {
         return explode('/', $_SERVER['REQUEST_URI']);
+    }
+
+    public function getFirstInSegment(): string
+    {
+        $segments = $this->getUriSegments();
+
+        foreach ($segments as $segment) {
+            if ($segment) {
+                return $segment;
+            }
+        }
+
+        return '';
     }
 }
