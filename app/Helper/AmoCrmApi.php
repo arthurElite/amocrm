@@ -8,7 +8,7 @@ class AmoCrmApi
     public function __construct()
     {
          try {
-             $this->amoClient = new AmoCRM\Client\AmoCRMApiClient('31552427', 'Tj92U2PKVhnOIcFwbsNPWPofDRDqnD7e467aMo5cAoLeCV7QYk2o8jXyKSMDKJ72', 'https://arthurmelikyan.github.io/');
+             $this->amoClient = new AmoCRM\Client\AmoCRMApiClient('31552427', 'KU5EsAkrxroCqJNRSdfZIHKZBD2ecwoZ26RD7uj8dKlO59t8D6eva5bJ9NnUXSqs', 'http://localhost:8000/settoken');
          } catch (Exception $e) {
              dd($e->getMessage());
          }
